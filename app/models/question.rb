@@ -1,11 +1,10 @@
 class Question < ApplicationRecord
 
+  belongs_to :user
+
+
   # Валидация
-  validates :text, presence: true
-
-
-
-
+  validates :text, :user, presence: true
 
   # Коллбэки
   before_validation :before_validation
