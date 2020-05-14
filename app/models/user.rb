@@ -12,9 +12,9 @@ class User < ApplicationRecord
   validates :email, :username, presence: true
   validates :email, :username, uniqueness: true
   # валидация на email
-  validates :email, format: {
-      with: /[a-z*\.]+[a-z*]+@[a-z*\.]+[a-z*]/m, message: "Неправильный формат email!"
-  }
+  validates :email, format: { with: /\A[a-z*\.]+[a-z*]+@[a-z*\.]+[a-z*]+\z/m }
+  # валидация формата юзернейма пользователя (только латинские буквы, цифры, и знак _)
+  validates :username, format: { with: /\A[a-zA-Z0-9_]+\z/ }
   # валидация максимальной длины юзернейма пользователя
   validates :username, length: { maximum: 40 }
 
