@@ -5,6 +5,8 @@ class Question < ApplicationRecord
 
   # Валидация
   validates :text, :user, presence: true
+  # валидация максимальной длины текста вопроса
+  validates :text, length: { maximum: 255 }
 
   # Коллбэки
   before_validation :before_validation

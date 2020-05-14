@@ -11,8 +11,14 @@ class User < ApplicationRecord
   # Валидация
   validates :email, :username, presence: true
   validates :email, :username, uniqueness: true
+  # валидация на email
+  validates :email, format: {
+      with: /[a-z*\.]+[a-z*]+@[a-z*\.]+[a-z*]/m, message: "Неправильный формат email!"
+  }
+  # валидация максимальной длины юзернейма пользователя
+  validates :username, length: { maximum: 40 }
 
-  # Добавляем вертуальный пароль
+  # Добавляем виртуальный пароль
   attr_accessor :password
 
   validates_presence_of :password, on: :create
