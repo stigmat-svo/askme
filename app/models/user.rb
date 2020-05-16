@@ -11,6 +11,9 @@ class User < ApplicationRecord
 
   has_many :questions
 
+  before_validation :username_downcase
+  before_save :encrypt_password
+
   # Валидация
   validates_presence_of :email, :username, on: :create
   validates_uniqueness_of :email, :username, on: :create
@@ -27,7 +30,11 @@ class User < ApplicationRecord
   validates_presence_of :password, on: :create
   validates_confirmation_of :password
 
-  before_save :encrypt_password
+  private
+
+  def username_downcase
+    self.username = username.downcase
+  end
 
   def encrypt_password
     if self.password.present?
