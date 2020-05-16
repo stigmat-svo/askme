@@ -1,6 +1,8 @@
 require 'openssl'
 
 class User < ApplicationRecord
+  # Добавляем виртуальный пароль
+  attr_accessor :password
 
   # Параметры работы модуля шифрования паролей
   ITERATIONS = 20000
@@ -15,19 +17,14 @@ class User < ApplicationRecord
   before_save :encrypt_password
 
   # Валидация
-  validates_presence_of :email, :username, on: :create
-  validates_uniqueness_of :email, :username, on: :create
+  validates_presence_of :email, :username, :password, on: :create
+  validates_uniqueness_of :email, :username, :password, on: :create
   # валидация на email
   validates_format_of :email, :with => FORMAT_EMAIL
   # валидация формата юзернейма пользователя (только латинские буквы, цифры, и знак _)
   validates_format_of :username, :with => FORMAT_USERNAME
   # валидация максимальной длины юзернейма пользователя
   validates_length_of :username, :maximum => 40
-
-  # Добавляем виртуальный пароль
-  attr_accessor :password
-
-  validates_presence_of :password, on: :create
   validates_confirmation_of :password
 
   private
