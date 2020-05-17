@@ -5,5 +5,5 @@ class Question < ApplicationRecord
   # Валидация
   validates_presence_of :text, on: :create
   # валидация максимальной длины текста вопроса
-  validates_length_of :text, :maximum => 255
+  validates_length_of :text, :maximum => 255, on: :create
 end
