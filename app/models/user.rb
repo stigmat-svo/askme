@@ -11,8 +11,8 @@ class User < ApplicationRecord
 
   has_many :questions, dependent: :destroy
 
-  before_validation :username_downcase
-  before_save :encrypt_password
+  before_validation :username_downcase, if: :username
+  before_save :encrypt_password, if: :password
 
   # Валидация
   validates :username, presence: true,
