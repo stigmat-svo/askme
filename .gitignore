@@ -36,3 +36,7 @@ yarn-debug.log*
 .yarn-integrity
 .idea
 .vscode
+/node_modules
+/public/assets
+/webpack-assets.json
+/webpack-assets-deploy.json

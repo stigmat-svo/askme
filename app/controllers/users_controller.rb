@@ -5,7 +5,7 @@ class UsersController < ApplicationController
             id: 1,
             name: 'Виталий',
             username: 'stigmat',
-            avatar_url: "https://lh3.googleusercontent.com/proxy/8RjW104aWqaFhYWwqhkf-KeAjZ8XRJDdrReNZLJkK_4PmzHWtMy_AvaNFCTb-pOOLysIH9ax6_h6BWo"
+            avatar_url: "https://lh3.googleusercontent.com/proxy/B0gSiyiLunjf7WMUjF1odzDYItEB6DH1yLRBMM4WQ9WwYEFPs898T4MoLGGYFQmSdUYxLv7Q9sS5Axw"
         ),
         User.new(
             id: 2,
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     @user = User.new(
         name: "Виталий Шелудько",
         username: "stigmat",
-        avatar_url: "https://lh3.googleusercontent.com/proxy/8RjW104aWqaFhYWwqhkf-KeAjZ8XRJDdrReNZLJkK_4PmzHWtMy_AvaNFCTb-pOOLysIH9ax6_h6BWo"
+        avatar_url: "https://lh3.googleusercontent.com/proxy/B0gSiyiLunjf7WMUjF1odzDYItEB6DH1yLRBMM4WQ9WwYEFPs898T4MoLGGYFQmSdUYxLv7Q9sS5Axw"
     )
 
     @questions = [

@@ -1,12 +1,13 @@
 require 'openssl'
 
 class User < ApplicationRecord
-  # Параметры работы модуля шифрования паролей
   ITERATIONS = 20000
   DIGEST = OpenSSL::Digest::SHA256.new
-
   FORMAT_EMAIL = /\A[a-z*\.]+[a-z*]+@[a-z*\.]+[a-z*]+\z/
-  FORMAT_USERNAME = /\A[\w]+\z/
+  FORMAT_USERNAME = /\A\w+\z/
+
+  # Добавляем виртуальный пароль
+  attr_accessor :password
 
   has_many :questions, dependent: :destroy
 
@@ -16,28 +17,24 @@ class User < ApplicationRecord
   # Валидация
   validates :username, presence: true,
             uniqueness: true,
-            on: [:create, :destroy],
-            length: { maximum: 40 },
-            format: { with: FORMAT_USERNAME }
+            on: :create,
+            length: {maximum: 40},
+            format: {with: FORMAT_USERNAME}
 
   validates :email, presence: true,
             uniqueness: true,
+            on: :create,
+            format: {with: FORMAT_EMAIL}
+
+  validates :password,
+            presence: true,
             on: [:create, :destroy],
-            format: { with: FORMAT_EMAIL }
-
-  # Добавляем виртуальный пароль
-  attr_accessor :password
-
-  validates :password, presence: true, on: [:create, :destroy], confirmation: true
+            confirmation: true
 
   private
 
   def username_downcase
     self.username = username.downcase
-  end
-
-  def self.destroy(user)
-    user.destroy
   end
 
   def encrypt_password
