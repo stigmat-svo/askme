@@ -17,13 +17,11 @@ class User < ApplicationRecord
   # Валидация
   validates :username, presence: true,
             uniqueness: true,
-            on: :create,
             length: {maximum: 40},
             format: {with: FORMAT_USERNAME}
 
   validates :email, presence: true,
             uniqueness: true,
-            on: :create,
             format: {with: FORMAT_EMAIL}
 
   validates :password,
