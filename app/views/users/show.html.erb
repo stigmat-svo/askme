@@ -39,7 +39,7 @@
   <div class="user-questions buffer-both">
     <div class="text-center">
       <%= @questions_count %>
-      <%= inclination(@questions_count) %>
+      <%= inclination(@questions_count, 'вопрос', 'вопроса', 'вопросов') %>
     </div>
     <div class="questions-list">
       <% @questions.each do |question| %>
