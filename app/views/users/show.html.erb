@@ -37,6 +37,10 @@
 
 <div class="column-3-4">
   <div class="user-questions buffer-both">
+    <div class="text-center">
+      <%= @questions_count %>
+      <%= inclination(@questions_count) %>
+    </div>
     <div class="questions-list">
       <% @questions.each do |question| %>
         <%= render partial: 'questions/question', object: question %>
