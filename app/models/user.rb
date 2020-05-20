@@ -29,8 +29,6 @@ class User < ApplicationRecord
             on: [:create, :destroy],
             confirmation: true
 
-  private
-  
   # Служебный метод, преобразующий бинарную строку в 16-ричный формат, для удобства хранения
   def self.hash_to_string(password_hash)
     password_hash.unpack('H*')[0]
@@ -47,6 +45,8 @@ class User < ApplicationRecord
       nil
     end
   end
+
+  private
 
   def encrypt_password
     if self.password.present?
