@@ -1,52 +1,60 @@
 class UsersController < ApplicationController
+
+  before_action :load_user, except: [:index, :new, :create]
+  before_action :authorize_user, except: [:index, :new, :create, :show]
+
   def index
-    @users = [
-        User.new(
-            id: 1,
-            name: 'Виталий',
-            username: 'stigmat',
-            avatar_url: "http://zornet.ru/_fr/81/3053642.jpg"
-        ),
-        User.new(
-            id: 2,
-            name: 'Игорь',
-            username: 'csg'
-        )
-    ]
+    @users = User.all
   end
 
   def new
+    redirect_to root_url, alert: 'Вы уже есть на сайте!' if current_user.present?
+    @user = User.new
   end
 
   def edit
   end
 
+  def create
+    redirect_to root_url, alert: 'Вы уже есть на сайте!' if current_user.present?
+    @user = User.new(user_params)
+
+    if @user.save
+      redirect_to root_url, notice: 'Пользователь успешно зарегистрирован!'
+    else
+      render 'new'
+    end
+  end
+
+  def update
+    if @user.update(user_params)
+      redirect_to user_path(@user), notice: 'Данные обновлены!'
+    else
+      render 'edit'
+    end
+  end
+
   def show
-    @user = User.new(
-        name: "Виталий Шелудько",
-        username: "stigmat",
-        avatar_url: "http://zornet.ru/_fr/81/3053642.jpg"
-    )
+    @questions = @user.questions.order(created_at: :desc)
 
-    @questions = [
-        Question.new(
-            text: 'Как дела?',
-            created_at: Date.parse('17.05.2020'),
-            answer: 'Отлично!'
-        ),
-        Question.new(
-            text: 'Как семья, как работа?',
-            created_at: Date.parse('17.05.2020'),
-            answer: 'Всё хорошо!'
-        ),
-        Question.new(
-            text: 'Машину починил?',
-            created_at: Date.parse('17.05.2020'),
-            answer: nil
-        )
-    ]
+    @new_question = @user.questions.build
+  end
 
-    @new_question = Question.new
-    @questions_count = @questions.count
+  private
+
+  def authorize_user
+    reject_user unless @user == current_user
+  end
+
+  def load_user
+    @user ||= User.find params[:id]
+  end
+
+  def user_params
+    params.require(:user).permit(:email, :password,
+                                 :password_confirmation,
+                                 :name, :username, :avatar_url)
   end
 end
+
+

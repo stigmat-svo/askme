@@ -8,6 +8,7 @@ gem 'sass-rails'
 gem 'webpacker'
 gem 'jquery-rails'
 gem 'optimist'
+gem 'rubycritic'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
