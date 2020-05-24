@@ -7,7 +7,7 @@ gem 'rails'
 gem 'sass-rails'
 gem 'webpacker'
 gem 'jquery-rails'
-gem 'optimist'
+gem "aws-sdk-s3", require: false
 
 group :production do
   gem 'pg'
