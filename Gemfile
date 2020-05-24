@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'uglifier'
 gem 'turbolinks'
 gem 'jbuilder'
+gem 'taps'
 gem 'sdoc', group: :doc
 
 group :development, :test do
@@ -16,6 +17,7 @@ group :development, :test do
   gem 'byebug'
   gem 'web-console'
   gem 'spring'
+  gem 'listen'
 end
 
 group :production do
