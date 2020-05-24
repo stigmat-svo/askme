@@ -19,3 +19,4 @@ class SessionsController < ApplicationController
     redirect_to root_path, notice: 'Вы вышли! Приходите ещё!'
   end
 end
+
