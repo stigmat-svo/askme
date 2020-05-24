@@ -8,14 +8,18 @@ gem 'sass-rails'
 gem 'webpacker'
 gem 'jquery-rails'
 gem 'optimist'
-gem 'rubycritic'
+gem 'uglifier'
+
+group :production do
+  gem 'pg'
+end
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development do
-  gem 'sqlite3'
   gem 'web-console'
   gem 'listen'
 end

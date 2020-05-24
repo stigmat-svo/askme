@@ -40,3 +40,4 @@ yarn-debug.log*
 /public/assets
 /webpack-assets.json
 /webpack-assets-deploy.json
+Будет удалено coverage/
