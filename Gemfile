@@ -15,7 +15,7 @@ group :production do
 end
 
 group :development, :test do
-  gem 'sqlite3'
+  gem 'sqlite3', '~> 1.4.2'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
