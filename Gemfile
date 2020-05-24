@@ -5,7 +5,6 @@ ruby '2.7.0'
 
 gem 'rails'
 gem 'sass-rails'
-gem 'sqlite3'
 gem 'webpacker'
 gem 'jquery-rails'
 gem 'optimist'
@@ -17,6 +16,7 @@ end
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'sqlite3'
 end
 
 group :development do
