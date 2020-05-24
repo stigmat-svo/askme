@@ -5,7 +5,6 @@ ruby '2.7.0'
 
 gem 'rails'
 gem 'sass-rails'
-gem 'webpacker'
 gem 'jquery-rails'
 gem 'uglifier'
 gem 'turbolinks'
