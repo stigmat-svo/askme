@@ -8,19 +8,18 @@ gem 'sass-rails'
 gem 'webpacker'
 gem 'jquery-rails'
 gem 'uglifier'
+gem 'turbolinks'
+gem 'jbuilder'
+gem 'sdoc', group: :doc
+
+group :development, :test do
+  gem 'sqlite3'
+  gem 'byebug'
+  gem 'web-console'
+  gem 'spring'
+end
 
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end
-
-group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  #gem 'sqlite3'
-end
-
-group :development do
-  gem 'web-console'
-  gem 'listen'
-end
-
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
