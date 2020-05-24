@@ -201,7 +201,7 @@ DEPENDENCIES
   pg
   rails
   sass-rails
-  sqlite3 (~> 1.4.2)
+  sqlite3
   tzinfo-data
   uglifier
   web-console
