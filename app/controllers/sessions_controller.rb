@@ -12,7 +12,6 @@ class SessionsController < ApplicationController
       flash.now.alert = 'Неправильный логин или пароль!'
       render :new
     end
-
   end
 
   def destroy
