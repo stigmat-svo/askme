@@ -44,6 +44,14 @@ class UsersController < ApplicationController
     @unanswered_count = @questions_count - @with_answer_count
   end
 
+  def destroy
+    session[:user_id] = nil
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:success] = "Пользователь удален."
+    redirect_to root_path
+  end
+
   private
 
   def authorize_user
