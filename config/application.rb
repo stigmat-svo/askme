@@ -38,7 +38,5 @@ module Askme
     config.i18n.locale = :ru
 
     config.i18n.fallbacks = [:en]
-
-    config.assets.initialize_on_precompile = false
   end
 end
