@@ -1,13 +1,12 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.0'
+ruby '2.7.1'
 
 gem 'rails'
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'webpacker'
-gem 'jquery-rails'
 gem "aws-sdk-s3", require: false
 
 group :production do
