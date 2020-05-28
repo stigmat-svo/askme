@@ -46,7 +46,6 @@ class UsersController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    @user = User.find(params[:id])
     @user.destroy
     flash[:success] = "Пользователь удален."
     redirect_to root_path
