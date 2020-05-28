@@ -44,6 +44,10 @@ class UsersController < ApplicationController
     @unanswered_count = @questions_count - @with_answer_count
   end
 
+  def destroy
+
+  end
+
   private
 
   def authorize_user
