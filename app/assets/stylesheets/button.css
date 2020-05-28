@@ -18,11 +18,6 @@
   background: #005a55;
   color: #fff;
 }
-.button-red {
-  float: right;
-  background: #B00100;
-  color: #fff;
-}
 
 .button-light {
   background: #00948a;
@@ -33,8 +28,4 @@
   font-size: 15px;
   line-height: 15px;
   padding: 7px 15px;
-}
-
-.button-save {
-  float: left;
 }
