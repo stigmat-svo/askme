@@ -42,6 +42,11 @@
         <%= f.password_field :password_confirmation, class: 'form-text-field' %>
       </div>
 
+      <div class="form-field buffer-top">
+        <%= f.label 'Изменить цвет профиля:', class: 'form-label' %>
+        <%= f.color_field :profilecolor, value: "#{@user.profilecolor}", class: 'color-field' %>
+      </div>
+
       <div class="form-action buffer-top">
         <%= f.submit 'Сохранить', class: 'button button-dark button-small button-left' %>
       </div>
