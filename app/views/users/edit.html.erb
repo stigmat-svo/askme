@@ -47,6 +47,11 @@
         <%= f.color_field :profilecolor, value: "#{@user.profilecolor}", class: 'color-field' %>
       </div>
 
+      <div class="form-field">
+        <%= f.label 'URL фоновой картинки для профиля:', class: 'form-label' %>
+        <%= f.text_field :profileimg, value: "#{@user.profileimg}", class: 'form-text-field' %>
+      </div>
+
       <div class="form-action buffer-top">
         <%= f.submit 'Сохранить', class: 'button button-dark button-small button-left' %>
       </div>
