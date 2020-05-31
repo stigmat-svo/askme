@@ -5,8 +5,8 @@ class User < ApplicationRecord
   DIGEST = OpenSSL::Digest::SHA256.new
   FORMAT_EMAIL = /\A[a-z*\.]+[a-z*]+@[a-z*\.]+[a-z*]+\z/
   FORMAT_USERNAME = /\A\w+\z/
+  FORMAT_COLOR = /\A#?(?:[A-F0-9]{3}){1,2}\z/i
 
-  # Добавляем виртуальный пароль
   attr_accessor :password
 
   has_many :questions, dependent: :destroy
@@ -28,6 +28,10 @@ class User < ApplicationRecord
             presence: true,
             on: [:create, :destroy],
             confirmation: true
+
+  validates :profilecolor,
+            format: { with: FORMAT_COLOR },
+            if: :profilecolor
 
   # Служебный метод, преобразующий бинарную строку в 16-ричный формат, для удобства хранения
   def self.hash_to_string(password_hash)
