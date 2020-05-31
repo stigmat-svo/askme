@@ -1,5 +1,10 @@
 .users-list-item {
   display: inline-block;
+  padding-right: 15px;
+}
+.username {
+  color: #005a55;
+  font-size: smaller;
 }
 
 .user-header {

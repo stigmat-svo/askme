@@ -16,6 +16,12 @@
         <%# страницы пользователя, например /users/1 %>
         <%= link_to image_tag(user_avatar(user), class: 'user-image'), user_path(user) %>
       </div>
+      <div class="buffer-bottom-user">
+        <p class="username">
+
+          @<%= user.username %>
+        </p>
+      </div>
     </div>
   <% end %>
 </div>
