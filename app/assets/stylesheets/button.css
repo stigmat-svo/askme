@@ -24,6 +24,10 @@
   color: #fff;
 }
 
+.button-glass {
+  background: transparent;
+}
+
 .button-small {
   font-size: 15px;
   line-height: 15px;

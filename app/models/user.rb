@@ -3,9 +3,8 @@ require 'openssl'
 class User < ApplicationRecord
   ITERATIONS = 20000
   DIGEST = OpenSSL::Digest::SHA256.new
-  FORMAT_EMAIL = /\A[a-z*\.]+[a-z*]+@[a-z*\.]+[a-z*]+\z/
   FORMAT_USERNAME = /\A\w+\z/
-  FORMAT_COLOR = /\A#?(?:[A-F0-9]{3}){1,2}\z/i
+  FORMAT_COLOR = /^#([[:alnum:]]{3}){1,2}$/
 
   # Виртуальный пароль
   attr_accessor :password
@@ -23,7 +22,7 @@ class User < ApplicationRecord
 
   validates :email, presence: true,
             uniqueness: true,
-            format: {with: FORMAT_EMAIL}
+            format: {with: URI::MailTo::EMAIL_REGEXP}
 
   validates :password,
             presence: true,
