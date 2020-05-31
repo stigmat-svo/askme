@@ -7,6 +7,7 @@ class User < ApplicationRecord
   FORMAT_USERNAME = /\A\w+\z/
   FORMAT_COLOR = /\A#?(?:[A-F0-9]{3}){1,2}\z/i
 
+  # Виртуальный пароль
   attr_accessor :password
 
   has_many :questions, dependent: :destroy
