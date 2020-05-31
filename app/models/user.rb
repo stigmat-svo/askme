@@ -4,7 +4,7 @@ class User < ApplicationRecord
   ITERATIONS = 20000
   DIGEST = OpenSSL::Digest::SHA256.new
   FORMAT_USERNAME = /\A\w+\z/
-  FORMAT_COLOR = /^#([[:alnum:]]{3}){1,2}$/
+  FORMAT_COLOR = /\A#([[:alnum:]]{3}){1,2}\z/
 
   # Виртуальный пароль
   attr_accessor :password
