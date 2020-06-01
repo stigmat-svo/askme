@@ -17,13 +17,21 @@
     <div class="question-date">
       <%= l(question.created_at, format: :short) %>
     </div>
-  </div>
-
-  <% if question.user == current_user %>
-    <div class="question-actions">
-      <%= link_to fa_icon(action_icon), edit_question_path(question) %>
-      <%= link_to fa_icon('trash-o'), question_path(question),
-                  method: :delete, data: {confirm: 'Точно удалить вопрос?'} %>
+    <div class="question-text text-lead">
+      <div class="buffer-top mini-text">
+        Этот вопрос от:
+      </div>
+      <div class="author">
+      <%= author_questions(question, "Незнакомец") %>
     </div>
-  <% end %>
+  </div>
+</div>
+
+<% if question.user == current_user %>
+  <div class="question-actions">
+    <%= link_to fa_icon(action_icon), edit_question_path(question) %>
+    <%= link_to fa_icon('trash-o'), question_path(question),
+                method: :delete, data: {confirm: 'Точно удалить вопрос?'} %>
+  </div>
+<% end %>
 </div>

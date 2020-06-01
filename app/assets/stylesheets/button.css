@@ -47,3 +47,10 @@
   float: right;
 }
 
+.author {
+  color: #000000;
+}
+
+.author:hover {
+  text-decoration: underline;
+}

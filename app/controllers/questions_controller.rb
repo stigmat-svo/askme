@@ -8,16 +8,18 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
 
+    @question.author_id = current_user.id if current_user.present?
+
     if @question.save
-      redirect_to users_path(@question.user), notice: 'Вопрос удачно создан!'
+      redirect_to user_path(@question.user), notice: 'Вопрос удачно создан!'
     else
-      render :new
+      render :edit
     end
   end
 
   def update
     if @question.update(question_params)
-      redirect_to users_path(@question.user), notice: 'Вопрос сохранен!'
+      redirect_to user_path(@question.user), notice: 'Вопрос сохранен!'
     else
       render :edit
     end
@@ -27,7 +29,7 @@ class QuestionsController < ApplicationController
     user = @question.user
     @question.destroy
 
-    redirect_to users_path(user), notice: 'Вопрос удален!'
+    redirect_to user_path(user), notice: 'Вопрос удален!'
   end
 
   private
@@ -42,9 +44,9 @@ class QuestionsController < ApplicationController
 
   def question_params
     if current_user.present? && params[:question][:user_id].to_i == current_user.id
-      params.require(:question).permit(:user_id, :text, :answer)
+      params.require(:question).permit(:user_id, :text, :answer, :author_id)
     else
-      params.require(:question).permit(:user_id, :text)
+      params.require(:question).permit(:user_id, :text, :author_id)
     end
   end
 end
