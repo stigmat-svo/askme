@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'webpacker'
 gem "aws-sdk-s3", require: false
 gem 'simple_hashtag'
+gem 'recaptcha'
 
 group :production do
   gem 'pg'
