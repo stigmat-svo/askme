@@ -166,6 +166,8 @@ GEM
       sprockets-rails
       tilt
     semantic_range (2.3.0)
+    simple_hashtag (0.1.9)
+      rails (> 3.2.0)
     sprockets (4.0.0)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -214,6 +216,7 @@ DEPENDENCIES
   pg
   rails
   sass-rails
+  simple_hashtag
   sqlite3
   tzinfo-data
   web-console

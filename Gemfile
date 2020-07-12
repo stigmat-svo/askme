@@ -8,6 +8,7 @@ gem 'sass-rails'
 gem 'jquery-rails'
 gem 'webpacker'
 gem "aws-sdk-s3", require: false
+gem 'simple_hashtag'
 
 group :production do
   gem 'pg'
